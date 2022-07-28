@@ -1,0 +1,17 @@
+resilience4j.ratelimiter:
+  configs:
+    default:
+      limitForPeriod: 3
+      limitRefreshPeriod: 5s
+      timeoutDuration: 100ms
+    backendAConfig:
+      limitForPeriod: 1
+      limitRefreshPeriod: 5s
+      timeoutDuration: 100ms
+  instances:
+    backendA:
+      baseConfig: backendAConfig
+    backendB:
+      limitForPeriod: 2
+      limitRefreshPeriod: 5s
+      timeoutDuration: 100ms
